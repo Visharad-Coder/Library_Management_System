@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007BFF;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Hover effect for buttons */
+        .btn-primary:hover, .search-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ student_name }}</h2>
+    <p>PRN: {{ student_prn }}</p>
+
+    <!-- Search Form -->
+    <form method="post" action="/dashboard" class="search-bar">
+        <input class="search-input" type="text" name="search_query" placeholder="Search Book by Name or Author" value="{{ search_query }}">
+        <button class="search-button" type="submit">Search</button>
+    </form>
+
+    <h4>Books</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Book Id</th>
+                <th>Name</th>
+                <th>Writer</th>
+                <th>Copy</th>
+                <th>Apply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ book.b_id }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.writer }}</td>
+                <td>{{ book.copy }}</td>
+                <td><a href="/apply/{{ book.b_id }}/{{ book.name }}"><button class="btn btn-primary text-uppercase">Apply</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/applied_history"><button class="btn btn-primary text-uppercase">Applied History</button></a>
+    <a href="/logout"><button class="btn btn-primary text-uppercase">Log Out</button></a>
+</body>
+</html>
