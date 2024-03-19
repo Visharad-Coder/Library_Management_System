@@ -4,14 +4,15 @@ This is a simple library management system designed to facilitate the management
 
 # Features
 # Student Features:
-Check the availability of books
+Check the availability of books,
 Apply for books
 # Admin Features:
-Add new books to the system
-Delete existing books
-Contact students
-Mark books as returned
-Technologies Used
-Backend:  Flask
-Frontend: HTML,CSS,BOOTSTRAP
+Add new books to the system,
+Delete existing books,
+Edit book,
+Contact students,
+Mark books as returned,
+# Technologies Used
+Backend:  Flask,
+Frontend: HTML,CSS,BOOTSTRAP,
 Database:  MySQL
