@@ -27,16 +27,16 @@ db = SQLAlchemy(app)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Use your email service provider's SMTP server
 app.config['MAIL_PORT'] = 587  # Port for outgoing email
 app.config['MAIL_USE_TLS'] = True  # Use TLS encryption
-app.config['MAIL_USERNAME'] = 'vk0984242@gmail.com'  # Your email address
-app.config['MAIL_PASSWORD'] = 'yqvj rilf eftl rhso'  # Your email password
+app.config['MAIL_USERNAME'] = 'XXXX@gmail.com'  # Your email address
+app.config['MAIL_PASSWORD'] = 'password'  # Your email password
 
 mail = Mail(app)
 
 
 
 # Define admin credentials
-ADMIN_EMAIL = "vish@gmail.com"
-ADMIN_PASSWORD = "Vish@123"
+ADMIN_EMAIL = "adminemail@.com"
+ADMIN_PASSWORD = "Password"
 
 
 class Books(db.Model):
